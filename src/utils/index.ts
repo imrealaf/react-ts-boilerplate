@@ -37,3 +37,11 @@ export const onTransitionEnd = (element: HTMLElement, callback: any) => {
     callback(element, duration);
   }, duration);
 };
+
+export const addBodyClass = (...classes: string[]) => {
+  document.body.classList.add(...classes);
+};
+
+export const removeBodyClass = (...classes: string[]) => {
+  document.body.classList.remove(...classes);
+};
