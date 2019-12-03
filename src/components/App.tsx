@@ -24,6 +24,8 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
    *  On route change ..
    */
   useEffect(() => {
+    // add route data attribute to DOM.
+    // used for page specific styling, if needed
     addRouteAttrToDOM(location);
   }, [location]);
 
