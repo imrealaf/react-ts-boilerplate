@@ -1,3 +1,10 @@
+/**
+ *  Index
+ *
+ *  @type Root
+ *  @desc the root of the application where the app is mounted
+ */
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";

@@ -1,3 +1,10 @@
+/**
+ *  Preloader
+ *
+ *  @type Component
+ *  @desc a simple preloader for displaying while waiting for app to do something
+ */
+
 import React from "react";
 
 const Preloader: React.FC = () => {

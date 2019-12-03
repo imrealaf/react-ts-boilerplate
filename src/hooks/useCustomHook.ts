@@ -1,3 +1,10 @@
+/**
+ *  useCustomHook
+ *
+ *  @type Custom Hook
+ *  @desc to do ..
+ */
+
 import { useState, useEffect } from "react";
 
 export default () => {
@@ -12,7 +19,7 @@ export default () => {
   useEffect(() => {
     // Do something ...
     setData({
-      foo: "bar",
+      foo: "bar"
     });
   }, []);
 

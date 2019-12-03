@@ -1,3 +1,10 @@
+/**
+ *  Utils
+ *
+ *  @type Functions
+ *  @desc several utility functions that can be used throughout the site anywhere
+ */
+
 export const addRouteAttrToDOM = (
   location: any,
   element: HTMLElement = document.body,

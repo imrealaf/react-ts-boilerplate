@@ -1,3 +1,10 @@
+/**
+ *  Home
+ *
+ *  @type Component
+ *  @desc the home page
+ */
+
 import React from "react";
 
 const Home: React.FC = () => {

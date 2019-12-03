@@ -1,9 +1,17 @@
+/**
+ *  App
+ *
+ *  @type Component
+ *  @desc the main app container component
+ *  @prop location - the location object from route props
+ */
+
 import React, { useEffect } from "react";
 import {
   Switch,
   Route,
   withRouter,
-  RouteComponentProps,
+  RouteComponentProps
 } from "react-router-dom";
 
 // Routes/pages
@@ -20,7 +28,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
   }, [location]);
 
   /*
-   *  render()
+   *  Render
    */
   return (
     <React.Fragment>
