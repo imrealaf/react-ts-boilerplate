@@ -1,7 +1,7 @@
 /**
  *  Preloader
  *
- *  @type Component
+ *  @type UI Component
  *  @desc a simple preloader for displaying while waiting for app to do something
  */
 

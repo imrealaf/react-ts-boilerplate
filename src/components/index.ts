@@ -6,6 +6,5 @@
  */
 
 import App from "./App";
-import Preloader from "./Preloader";
 
-export { App, Preloader };
+export { App };
