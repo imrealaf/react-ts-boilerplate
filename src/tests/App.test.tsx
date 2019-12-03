@@ -10,7 +10,7 @@ import { configure, shallow, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
 import { BrowserRouter as Router } from "react-router-dom";
-import App from "../components/App";
+import { App } from "../components";
 
 // Configure for React 16
 configure({ adapter: new Adapter() });
