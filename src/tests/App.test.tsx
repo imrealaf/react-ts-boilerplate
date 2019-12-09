@@ -28,13 +28,4 @@ describe("<App />", () => {
     const wrapper = mount(app);
     wrapper.unmount();
   });
-
-  // 2. Location prop
-  it("receives location prop from route and sets data-attribute to DOM", () => {
-    const wrapper = shallow(app);
-    setTimeout(() => {
-      expect(wrapper.prop("location")).toBeInstanceOf("object");
-      expect(document.body.dataset.route).toBeInstanceOf("string");
-    });
-  });
 });
