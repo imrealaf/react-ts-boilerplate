@@ -10,4 +10,5 @@ A boilerplate for getting a React App in TypeScript up and running fast
 - **SASS** enabled with **Bootstrap** SASS included
 - **React Bootstrap** for basic UI components
 - **React Helmet** for dynamic meta updates
+- **React FontAwesome** for icons
 - **Custom Hooks** for handling modal state etc.
