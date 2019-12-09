@@ -12,21 +12,32 @@ import { Page } from "../components/hoc";
 import { useModal } from "../hooks";
 
 const Home: React.FC = () => {
-  // Example modal api
+  /*
+   *  Example modal API
+   */
   const modal = useModal();
+
+  /*
+   *  Render
+   */
   return (
-    <Page>
-      <Jumbotron>
+    <Page title="Home" descrip="This is the home page">
+      {/* Hero */}
+      <Jumbotron fluid>
         <Container>
           <h1>Home</h1>
           <Button onClick={modal.handleShow}>Toggle modal</Button>
         </Container>
       </Jumbotron>
+
+      {/* Page content */}
       <div id="content">
         <Container>
           <p>This is the home page!</p>
         </Container>
       </div>
+
+      {/* Example modal */}
       <Modal show={modal.show} onHide={modal.handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>

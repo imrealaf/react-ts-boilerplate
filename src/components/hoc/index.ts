@@ -6,7 +6,6 @@
  */
 
 import RedirectRoute from "./RedirectRoute";
-import Preload from "./Preload";
 import Page from "./Page";
 
-export { RedirectRoute, Preload, Page };
+export { RedirectRoute, Page };

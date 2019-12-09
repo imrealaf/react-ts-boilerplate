@@ -6,5 +6,6 @@
  */
 
 import Preloader from "./Preloader";
+import Preload from "./Preload";
 
-export { Preloader };
+export { Preloader, Preload };
