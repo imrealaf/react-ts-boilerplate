@@ -6,7 +6,7 @@
  *  @prop location - the location object from route props
  */
 
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Switch,
   Route,
@@ -15,20 +15,10 @@ import {
 } from "react-router-dom";
 
 // Routes/pages
-import { addRouteAttrToDOM } from "../utils";
 import * as routes from "../constants/routes";
 import { Home } from "../pages";
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
-  /*
-   *  On route change ..
-   */
-  useEffect(() => {
-    // add route data attribute to DOM.
-    // used for page specific styling, if needed
-    addRouteAttrToDOM(location);
-  }, [location]);
-
   /*
    *  Render
    */
