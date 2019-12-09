@@ -12,6 +12,6 @@ export default {
     titleSeperator: "-"
   },
   preload: {
-    delayTime: 2000
+    delayTime: 1500
   }
 };
