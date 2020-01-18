@@ -23,7 +23,7 @@ const App: React.FC = () => {
       {/**
        * Preload
        */}
-      <Preload>
+      <Preload animateOut={true}>
         <FontAwesomeIcon
           className="text-primary"
           icon={["fas", "gem"]}
