@@ -1,21 +1,14 @@
-/**
- *  Home
- *
- *  @type Component
- *  @desc the home page
- */
-
 import React from "react";
-import { Container, Jumbotron, Button, Modal } from "react-bootstrap";
+import { Button, Container, Jumbotron, Modal } from "react-bootstrap";
 
-import { Page } from "../components/hoc";
-import { useModal } from "../hooks";
+import { useToggle } from "../../hooks";
+import { Page } from "../hoc";
 
 const Home: React.FC = () => {
   /*
    *  Example modal API
    */
-  const modal = useModal();
+  const modal = useToggle();
 
   /*
    *  Render
@@ -23,7 +16,7 @@ const Home: React.FC = () => {
   return (
     <Page title="Home" descrip="This is the home page">
       {/* Hero */}
-      <Jumbotron fluid>
+      <Jumbotron fluid={true}>
         <Container>
           <h1>Home</h1>
           <Button onClick={modal.handleShow}>Toggle modal</Button>
@@ -39,7 +32,7 @@ const Home: React.FC = () => {
 
       {/* Example modal */}
       <Modal show={modal.show} onHide={modal.handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton={true}>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>

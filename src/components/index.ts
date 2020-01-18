@@ -1,10 +1,4 @@
-/**
- *  Components
- *
- *  @type index
- *  @desc this file just exports all components into one object so they can be imported easier
- */
-
 import App from "./App";
+import Routes from "./Routes";
 
-export { App };
+export { App, Routes };

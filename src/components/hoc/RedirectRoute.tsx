@@ -1,21 +1,16 @@
-/**
- *  RedirectRoute
- *
- *  @type Higher Order Component
- *  @desc special Route component that can redirect based on condition
- *  @prop ...rest - any valid route prop
- */
-
 import React from "react";
-import { Route, Redirect, RouteProps } from "react-router-dom";
+import { Redirect, Route, RouteProps } from "react-router-dom";
 
 // RedirectRoute props
-interface Props extends RouteProps {
+interface IRedirectRouteProps extends RouteProps {
   condition: boolean;
   to: string;
 }
 
-const RedirectRoute: React.FC<Props> = ({ children, ...rest }) => {
+const RedirectRoute: React.FC<IRedirectRouteProps> = ({
+  children,
+  ...rest
+}) => {
   return (
     <Route
       {...rest}

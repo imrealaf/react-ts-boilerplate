@@ -1,37 +1,53 @@
-/**
- *  Page
- *
- *  @type Higher Order Component
- *  @desc the page wrapper component
- *  @prop title - the title of the page (optional)
- *  @prop descrip - the description of the page (optional)
- *  @prop location - the location object passed from Route
- */
-
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { withRouter, RouteComponentProps } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import config from "../../constants/config";
 import { getCurrentRoute } from "../../utils";
 
-// Page props
-interface Props extends RouteComponentProps {
+/**
+ *  Props definition
+ */
+export interface IPageProps {
+  classes?: string[];
   title?: string;
   descrip?: string;
+  isAuthenticated?: boolean;
+  user?: any;
+  isAdmin?: boolean;
+  loading?: boolean;
 }
 
-const Page: React.FC<Props> = ({ children, title, descrip, location }) => {
+export const Page: React.FC<IPageProps> & {
+  defaultProps: Partial<IPageProps>;
+} = ({ children, title, descrip, classes }) => {
+  /**
+   *  Location api
+   */
+  const location = useLocation();
+
+  /**
+   *  Route state ..
+   */
   const [currentRoute, setCurrentRoute] = useState(null) as any;
 
-  /*
+  /**
    *  On route change ..
    */
   useEffect(() => {
     setCurrentRoute(getCurrentRoute(location));
   }, [location, setCurrentRoute]);
 
-  /*
+  /**
+   *  Class string generation
+   */
+  const className = () => {
+    const classArray = [] as any;
+    if (!classes) classes = [];
+    return classArray.concat(classes).join(" ");
+  };
+
+  /**
    *  Render
    */
   return (
@@ -42,11 +58,16 @@ const Page: React.FC<Props> = ({ children, title, descrip, location }) => {
       >
         <title>{title ? title : ""}</title>
         {descrip ? <meta name="description" content={descrip} /> : null}
-        <body data-route={currentRoute} />
+        <body className={className()} data-route={currentRoute} />
       </Helmet>
       {children}
     </React.Fragment>
   );
 };
 
-export default withRouter(Page);
+/**
+ *  Default props
+ */
+Page.defaultProps = {
+  classes: []
+};

@@ -1,11 +1,6 @@
-/**
- *  UI Components
- *
- *  @type index
- *  @desc this file just exports all UI components into one object so they can be imported easier
- */
+import { Hero } from "./Hero";
+import { Preload } from "./Preload";
+import { Preloader } from "./Preloader";
+import { SidePanel } from "./SidePanel";
 
-import Preloader from "./Preloader";
-import Preload from "./Preload";
-
-export { Preloader, Preload };
+export { Preloader, Preload, Hero, SidePanel };

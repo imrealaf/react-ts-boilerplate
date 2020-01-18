@@ -1,18 +1,15 @@
-/**
- *  Index
- *
- *  @type Root
- *  @desc the root of the application where the app is mounted
- */
-
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import "./styles/index.scss";
+
 import { App } from "./components";
 import registerServiceWorker from "./registerServiceWorker";
 
+/**
+ *  Mount app
+ */
 ReactDOM.render(
   <Router>
     <App />
@@ -20,4 +17,7 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
+/**
+ *  Register service worker
+ */
 registerServiceWorker();

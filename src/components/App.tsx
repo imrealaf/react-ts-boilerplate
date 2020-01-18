@@ -1,31 +1,15 @@
-/**
- *  App
- *
- *  @type Component
- *  @desc the main app container component
- *  @prop location - the location object from route props
- */
-
-import React from "react";
-import {
-  Switch,
-  Route,
-  withRouter,
-  RouteComponentProps
-} from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 
-// Routes/pages
-import * as routes from "../constants/routes";
-import { Home } from "../pages";
+import "./App.scss";
 
-// Components
+import { Routes } from "./";
 import { Preload } from "./ui";
 
-const App: React.FC<RouteComponentProps> = ({ location }) => {
+const App: React.FC = () => {
   /*
    *  Add font awesome icons to library
    */
@@ -36,7 +20,9 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
    */
   return (
     <React.Fragment>
-      {/* Preload */}
+      {/**
+       * Preload
+       */}
       <Preload>
         <FontAwesomeIcon
           className="text-primary"
@@ -45,16 +31,14 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
         />
       </Preload>
 
-      {/* Main content */}
+      {/**
+       * Main
+       */}
       <main id="main" role="main">
-        <Switch>
-          <Route exact path={routes.HOME}>
-            <Home />
-          </Route>
-        </Switch>
+        <Routes />
       </main>
     </React.Fragment>
   );
 };
 
-export default withRouter(App);
+export default App;

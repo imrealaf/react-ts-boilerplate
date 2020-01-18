@@ -5,15 +5,6 @@
  *  @desc several utility functions that can be used throughout the site anywhere
  */
 
-export const addRouteAttrToDOM = (
-  location: any,
-  element: HTMLElement = document.body,
-  rootName: string = "home"
-) => {
-  const route: string = location.pathname.replace("/", "");
-  element.dataset.route = route === "" ? rootName : route;
-};
-
 export const getCurrentRoute = (location: any, rootName: string = "home") => {
   const route: string = location.pathname.replace("/", "");
   return route === "" ? rootName : route;
@@ -41,12 +32,4 @@ export const onTransitionEnd = (element: HTMLElement, callback: any) => {
   setTimeout(() => {
     callback(element, duration);
   }, duration);
-};
-
-export const addBodyClass = (...classes: string[]) => {
-  document.body.classList.add(...classes);
-};
-
-export const removeBodyClass = (...classes: string[]) => {
-  document.body.classList.remove(...classes);
 };

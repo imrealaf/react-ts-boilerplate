@@ -7,12 +7,7 @@
 // Vendor
 @import "vendor";
 
-// Global
+// App
 @import "global";
-
-// Components
-@import "components/Preloader";
-@import "components/Preload";
-
-// Pages
-@import "pages/Home";
+@import "utilities";
+@import "abstract/buttons";
