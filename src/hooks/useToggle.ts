@@ -1,54 +1,65 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from 'react';
 
-/**
- *  Hook api interface
- */
 export interface IUseToggle {
-  show: boolean;
-  setShow: Dispatch<SetStateAction<boolean>>;
-  handleClose(): void;
-  handleShow(): void;
+  /**
+   *  active
+   *  @type boolean
+   *  @description the value of the current active state
+   */
+  active: boolean;
+
+  /**
+   *  show()
+   *  @type method
+   *  @description sets active state to true (transition in)
+   */
+  show(): void;
+
+  /**
+   *  hide()
+   *  @type method
+   *  @description sets active state to false (transition out)
+   */
+  hide(): void;
+
+  /**
+   *  toggle()
+   *  @type method
+   *  @description switches between active state
+   */
   toggle(): void;
 }
 
-/**
- *  Hook
- */
 export const useToggle = (): IUseToggle => {
   /**
-   *  Create state
+   *  State
    */
-  const [show, setShow] = useState(false);
+  const [active, setShow] = useState(false);
 
   /**
-   *  handle close method
+   *  show()
    */
-  const handleClose = () => setShow(false);
+  const show = () => setShow(false);
 
   /**
-   *  Handle show method
+   *  hide()
    */
-  const handleShow = () => setShow(true);
+  const hide = () => setShow(true);
 
   /**
-   *  Toggle method
+   *  toggle()
    */
   const toggle = () => {
-    if (!show) {
-      handleShow();
-    } else {
-      handleClose();
-    }
+    !active ? show() : hide();
   };
 
   /**
-   *  Return api
+   *  Return API
    */
   return {
+    active,
     show,
-    setShow,
-    handleClose,
-    handleShow,
+    hide,
     toggle
   };
 };

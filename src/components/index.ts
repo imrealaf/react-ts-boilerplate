@@ -1,4 +1,3 @@
-import App from "./App";
-import Routes from "./Routes";
-
-export { App, Routes };
+export { default as App } from './App';
+export { default as Routes } from './Routes';
+export { Header } from './Header';

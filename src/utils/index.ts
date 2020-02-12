@@ -1,26 +1,19 @@
-/**
- *  Utils
- *
- *  @type Functions
- *  @desc several utility functions that can be used throughout the site anywhere
- */
-
-export const getCurrentRoute = (location: any, rootName: string = "home") => {
-  const route: string = location.pathname.replace("/", "");
-  return route === "" ? rootName : route;
+export const getCurrentRoute = (location: any, rootName: string = 'home') => {
+  const route: string = location.pathname.replace('/', '');
+  return route === '' ? rootName : route;
 };
 
-export const getTransitionDuration = (element: HTMLElement) => {
+export const getTransitionDuration = (element: HTMLElement): number => {
   const style = window.getComputedStyle(element);
   if (!style) {
-    return;
+    return 0;
   }
 
   const duration = parseFloat(
-    style.getPropertyValue("transition-duration").replace("s", "")
+    style.getPropertyValue('transition-duration').replace('s', '')
   );
-  const delay = style.getPropertyValue("transition-delay")
-    ? parseFloat(style.getPropertyValue("transition-delay").replace("s", ""))
+  const delay = style.getPropertyValue('transition-delay')
+    ? parseFloat(style.getPropertyValue('transition-delay').replace('s', ''))
     : 0;
 
   const val = duration + delay;

@@ -1,73 +1,41 @@
-import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
-import { useLocation } from "react-router-dom";
+import classNames from 'classnames';
+import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 
-import config from "../../constants/config";
-import { getCurrentRoute } from "../../utils";
+import config from '../../config';
 
 /**
  *  Props definition
  */
 export interface IPageProps {
-  classes?: string[];
+  classes: string[];
   title?: string;
-  descrip?: string;
-  isAuthenticated?: boolean;
-  user?: any;
-  isAdmin?: boolean;
-  loading?: boolean;
+  description?: string;
 }
-
-export const Page: React.FC<IPageProps> & {
-  defaultProps: Partial<IPageProps>;
-} = ({ children, title, descrip, classes }) => {
-  /**
-   *  Location api
-   */
-  const location = useLocation();
-
-  /**
-   *  Route state ..
-   */
-  const [currentRoute, setCurrentRoute] = useState(null) as any;
-
-  /**
-   *  On route change ..
-   */
-  useEffect(() => {
-    setCurrentRoute(getCurrentRoute(location));
-  }, [location, setCurrentRoute]);
-
-  /**
-   *  Class string generation
-   */
-  const className = () => {
-    const classArray = [] as any;
-    if (!classes) classes = [];
-    return classArray.concat(classes).join(" ");
-  };
-
-  /**
-   *  Render
-   */
-  return (
-    <React.Fragment>
-      <Helmet
-        titleTemplate={`%s ${config.meta.titleSeperator} ${config.appName}`}
-        defaultTitle={config.appName}
-      >
-        <title>{title ? title : ""}</title>
-        {descrip ? <meta name="description" content={descrip} /> : null}
-        <body className={className()} data-route={currentRoute} />
-      </Helmet>
-      {children}
-    </React.Fragment>
-  );
-};
 
 /**
  *  Default props
  */
-Page.defaultProps = {
+const defaultProps = {
   classes: []
 };
+
+export const Page: React.FC<IPageProps> & {
+  defaultProps: Partial<IPageProps>;
+} = ({ classes, title, description, children }) => {
+  return (
+    <Fragment>
+      <Helmet
+        titleTemplate={`%s ${config.meta.titleSeperator} ${config.appName}`}
+        defaultTitle={config.appName}
+      >
+        <title>{title ? title : ''}</title>
+        {description ? <meta name="description" content={description} /> : null}
+        {classes.length ? <body className={classNames(...classes)} /> : null}
+      </Helmet>
+      {children}
+    </Fragment>
+  );
+};
+
+Page.defaultProps = defaultProps;

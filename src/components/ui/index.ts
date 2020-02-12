@@ -1,6 +1,6 @@
-import { Hero } from "./Hero";
-import { Preload } from "./Preload";
-import { Preloader } from "./Preloader";
-import { SidePanel } from "./SidePanel";
+export { Hero } from './Hero';
+export { Preload } from './Preload';
+export { Preloader } from './Preloader';
+export { ScrollToTop } from './ScrollToTop';
 
-export { Preloader, Preload, Hero, SidePanel };
+// export { Preloader, Preload, Hero };

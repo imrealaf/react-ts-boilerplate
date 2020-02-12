@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
-import "./Preload.scss";
+import './Preload.scss';
 
-import config from "../../constants/config";
-import { ThemeColor } from "../../index.d";
-import { onTransitionEnd } from "../../utils";
+import config from '../../config';
+import { ThemeColor } from '../../index.d';
+import { onTransitionEnd } from '../../utils';
 
 /**
  *  Component name
  */
-const compName = "preload";
+const compName = 'preload';
 
 /**
  *  Props definition
@@ -36,16 +36,16 @@ export const Preload: React.FC<IPreloadProps> & {
    *  On mount
    */
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
     setTimeout(() => {
       if (animateOut) {
         ref.current.style.opacity = 0;
         onTransitionEnd(ref.current, () => {
-          document.body.style.overflow = "";
+          document.body.style.overflow = '';
           setShow(false);
         });
       } else {
-        document.body.style.overflow = "";
+        document.body.style.overflow = '';
         setShow(false);
       }
     }, config.preload.delayTime);
@@ -56,7 +56,7 @@ export const Preload: React.FC<IPreloadProps> & {
    */
   const className = (): string => {
     const classes = [compName, `bg-${color}`];
-    return classes.join(" ");
+    return classes.join(' ');
   };
 
   /**
@@ -73,6 +73,6 @@ export const Preload: React.FC<IPreloadProps> & {
  *  Default props
  */
 Preload.defaultProps = {
-  color: "light",
+  color: 'light',
   animateOut: false
 };

@@ -1,0 +1,5 @@
+@mixin hook-button() {
+  &.uk-button-pill {
+    border-radius: 30px;
+  }
+}

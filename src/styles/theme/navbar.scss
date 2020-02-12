@@ -1,0 +1,12 @@
+@mixin hook-navbar() {
+  &.uk-sticky-fixed {
+    background: white !important;
+  }
+  &.uk-navbar-transparent:not(.uk-sticky-fixed) {
+    color: white;
+
+    .uk-logo {
+      color: white;
+    }
+  }
+}

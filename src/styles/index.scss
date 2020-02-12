@@ -1,13 +1,15 @@
-/**
- *  Index
- *
- *  @desc the root file for all styles in the app
- */
+// custom variables and variable overwrites
+@import 'theme/variables';
 
-// Vendor
-@import "vendor";
+// default variables and available mixins
+@import '~uikit/src/scss/variables-theme';
+@import '~uikit/src/scss/mixins-theme';
 
-// App
-@import "global";
-@import "utilities";
-@import "abstract/buttons";
+// custom mixin overwrites
+@import 'theme/mixins';
+
+// UIkit
+@import 'uikit';
+
+// Components
+@import 'burger';
