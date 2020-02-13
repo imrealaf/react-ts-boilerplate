@@ -4,17 +4,24 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
-import React from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import theme from '../styles/theme';
 import { Header, Routes } from './';
-import { Preload, ScrollToTop } from './ui';
+import { LoadingScreen, Preload, ScrollToTop } from './ui';
 
 const App: React.FC = () => {
   /*
    *  Add font awesome icons to library
    */
   library.add(fas, fab);
+
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(true);
+    }, 2000);
+  }, []);
 
   /*
    *  Render
@@ -26,30 +33,34 @@ const App: React.FC = () => {
       {/**
        * Preload
        */}
-      <Preload animateOut={true}>
+      <LoadingScreen active={!loaded}>
         <FontAwesomeIcon
           className="text-primary"
           icon={['fas', 'gem']}
           size="4x"
         />
-      </Preload>
+      </LoadingScreen>
 
-      {/**
-       * Header
-       */}
-      <Header />
+      {loaded ? (
+        <Fragment>
+          {/**
+           * Header
+           */}
+          <Header />
 
-      {/**
-       * Main
-       */}
-      <main id="main" role="main">
-        <Routes />
-      </main>
+          {/**
+           * Main
+           */}
+          <main id="main" role="main">
+            <Routes />
+          </main>
 
-      {/*
-       * Scroll-to-top
-       */}
-      <ScrollToTop anchor="#top" threshold={400} size="medium" />
+          {/*
+           * Scroll-to-top
+           */}
+          <ScrollToTop anchor="#top" threshold={400} size="medium" />
+        </Fragment>
+      ) : null}
     </ThemeProvider>
   );
 };
