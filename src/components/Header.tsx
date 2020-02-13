@@ -1,15 +1,18 @@
 import {
   AppBar,
   Box,
-  Container,
-  Drawer,
+  Hidden,
+  IconButton,
   List,
   ListItem,
+  ListItemText,
+  SwipeableDrawer,
   Toolbar
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import MenuIcon from '@material-ui/icons/Menu';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import navItems from '../data/navgiation.json';
 import { useElevationOnScroll, useToggle } from '../hooks';
@@ -56,11 +59,24 @@ const useStyles = makeStyles(theme => ({
         ? 'transparent'
         : theme.palette.primary.main
   }),
+  appBarNav: {
+    marginLeft: 'auto'
+  },
+  appBarNavLink: {
+    color: theme.palette.text.primary
+  },
   logo: {
     marginBottom: 0,
     color: theme.palette.text.primary,
     fontSize: '20px',
     display: 'inline-block'
+  },
+  toggle: {
+    position: 'absolute',
+    right: theme.spacing(2)
+  },
+  drawer: {
+    width: 300
   }
 }));
 
@@ -91,6 +107,26 @@ export const Header: React.FC<IHeaderProps> & {
         <AppBar className={classes.appBar} elevation={elevated ? 4 : 0}>
           <Toolbar>
             <div className={classes.logo}>App</div>
+            <List className={classes.appBarNav}>
+              <ListItem
+                className={classes.appBarNavLink}
+                component={NavLink}
+                to="/"
+              >
+                <ListItemText primary="test" />
+              </ListItem>
+            </List>
+            <Hidden mdUp={true}>
+              <IconButton
+                className={classes.toggle}
+                color="inherit"
+                aria-label="open drawer"
+                edge="end"
+                onClick={nav.toggle}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Hidden>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
@@ -98,17 +134,23 @@ export const Header: React.FC<IHeaderProps> & {
       {/*
        * Nav drawer
        */}
-      <Drawer anchor="right" open={nav.active}>
+      <SwipeableDrawer
+        anchor="right"
+        open={nav.active}
+        onOpen={nav.show}
+        onClose={nav.hide}
+        transitionDuration={{ enter: 400, exit: 200 }}
+      >
         <Box width={300}>
           <List>
             {navItems.map((item, i) => (
-              <ListItem key={i}>
-                <Link to={item.path}>{item.title}</Link>
+              <ListItem key={i} button={true} component={NavLink} to="/page-2">
+                <ListItemText primary={item.title} />
               </ListItem>
             ))}
           </List>
         </Box>
-      </Drawer>
+      </SwipeableDrawer>
     </header>
   );
 };

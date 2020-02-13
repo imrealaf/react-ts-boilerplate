@@ -34,17 +34,17 @@ export const useToggle = (): IUseToggle => {
   /**
    *  State
    */
-  const [active, setShow] = useState(false);
+  const [active, setActive] = useState(false);
 
   /**
    *  show()
    */
-  const show = () => setShow(false);
+  const show = () => setActive(true);
 
   /**
    *  hide()
    */
-  const hide = () => setShow(true);
+  const hide = () => setActive(false);
 
   /**
    *  toggle()

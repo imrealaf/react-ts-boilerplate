@@ -8,7 +8,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 
 import theme from '../styles/theme';
 import { Header, Routes } from './';
-import { LoadingScreen, Preload, ScrollToTop } from './ui';
+import { LoadingScreen, ScrollToTop } from './ui';
 
 const App: React.FC = () => {
   /*

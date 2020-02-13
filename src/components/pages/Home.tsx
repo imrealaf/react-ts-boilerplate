@@ -3,14 +3,29 @@ import React from 'react';
 
 import metaData from '../../data/meta.json';
 import { Page } from '../hoc';
+import { Slideshow } from '../ui';
+
+const slides = [
+  {
+    src: '/images/1.jpg',
+    overlay: true,
+    kenBurns: true
+  },
+  {
+    src: '/images/2.jpg',
+    overlay: true
+  },
+  {
+    src: '/images/3.jpg',
+    overlay: true
+  }
+];
 
 const Home: React.FC = () => {
   return (
     <Page {...metaData.home}>
-      <Container>
-        <h1>Home</h1>
-        <p>This is the home page!</p>
-      </Container>
+      <Slideshow items={slides} nav={true} fillHeight={true} />
+      <Container />
     </Page>
   );
 };

@@ -48,7 +48,12 @@ export const LoadingScreen: React.FC<ILoadingScreenProps> & {
   };
 
   return show ? (
-    <Fade in={active} onExited={onAnimationComplete}>
+    <Fade
+      appear={false}
+      enter={false}
+      in={active}
+      onExited={onAnimationComplete}
+    >
       <div className={classes.root}>{children}</div>
     </Fade>
   ) : null;
