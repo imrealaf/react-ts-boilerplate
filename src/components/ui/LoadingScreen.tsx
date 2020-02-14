@@ -2,11 +2,17 @@ import { Fade } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useState } from 'react';
 
+/**
+ *  Props definition
+ */
 export interface ILoadingScreenProps {
   active: boolean;
   color: string;
 }
 
+/**
+ *  Default props
+ */
 const defaultProps = {
   color: 'primary'
 };
@@ -43,6 +49,9 @@ export const LoadingScreen: React.FC<ILoadingScreenProps> & {
    */
   const classes = useStyles(props);
 
+  /**
+   *  Complete handler
+   */
   const onAnimationComplete = () => {
     setShow(false);
   };

@@ -1,19 +1,11 @@
 import React, { Fragment } from 'react';
 
+import { ISlideshowItemProps, SlideshowItem } from './SlideshowItem';
+
 /**
  *  Animation type
  */
 type Animation = 'slide' | 'fade' | 'scale' | 'pull' | 'push';
-
-/**
- *  Slideshow item props
- */
-export interface ISlideshowItem {
-  src: string;
-  title?: string;
-  overlay?: boolean;
-  kenBurns?: boolean;
-}
 
 /**
  *  Slideshow props
@@ -23,7 +15,7 @@ export interface ISlideshowProps {
    *  items
    *  @description array of slideshow items to dispay
    */
-  items: ISlideshowItem[];
+  items: ISlideshowItemProps[];
 
   /**
    *  items
@@ -148,19 +140,7 @@ export const Slideshow: React.FC<ISlideshowProps> & {
       <ul className="uk-slideshow-items" {...special}>
         {items.map((item, i) => (
           <li key={i}>
-            <div
-              className={`uk-position-cover${
-                item.kenBurns
-                  ? ' uk-animation-kenburns uk-animation-reverse uk-transform-origin-center-left'
-                  : ''
-              }`}
-            >
-              <img src={item.src} alt="" data-uk-cover={true} />
-              {item.overlay ? (
-                <div className="uk-overlay-primary uk-position-cover" />
-              ) : null}
-            </div>
-            >
+            <SlideshowItem {...item} />
           </li>
         ))}
       </ul>

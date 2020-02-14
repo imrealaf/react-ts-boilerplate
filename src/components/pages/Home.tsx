@@ -9,16 +9,21 @@ const slides = [
   {
     src: '/images/1.jpg',
     overlay: true,
-    kenBurns: true
-  },
-  {
-    src: '/images/2.jpg',
-    overlay: true
-  },
-  {
-    src: '/images/3.jpg',
-    overlay: true
+    kenBurns: true,
+    content: {
+      title: 'This is my headline',
+      subtitle: 'trfdfdsfd',
+      position: 'center'
+    }
   }
+  // {
+  //   src: '/images/2.jpg',
+  //   overlay: true
+  // },
+  // {
+  //   src: '/images/3.jpg',
+  //   overlay: true
+  // }
 ];
 
 const Home: React.FC = () => {
